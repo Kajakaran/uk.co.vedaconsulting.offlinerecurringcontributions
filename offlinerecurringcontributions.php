@@ -28,6 +28,9 @@ function offlinerecurringcontributions_civicrm_xmlMenu(&$files) {
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_install
  */
 function offlinerecurringcontributions_civicrm_install() {
+  $extensionDir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
+  $sqlName = $extensionDir.'sql'.DIRECTORY_SEPARATOR.'update.sql';
+  CRM_Utils_File::sourceSQLFile(CIVICRM_DSN, $sqlName );
   _offlinerecurringcontributions_civix_civicrm_install();
 }
 
