@@ -180,6 +180,28 @@ SELECT r.payment_processor_id
 
     return CRM_Financial_BAO_PaymentProcessor::getPayment($paymentProcessorID, $mode);
   }
+  
+  /**
+   * @param int $contactId
+   *
+   * @return null|string
+   */
+  public static function contributionRecurCount($contactId) {
+    if (!$contactId) {
+      return 0;
+    }
+
+    $contactContributionsRecurSQL = "
+      SELECT contribution_recur.id AS id
+      FROM civicrm_contribution_recur contribution_recur
+      WHERE contribution_recur.contact_id = {$contactId} ";
+
+    $query = "SELECT count( x.id ) count FROM ( ";
+    $query .= $contactContributionsRecurSQL;
+    $query .= ") x";
+
+    return CRM_Core_DAO::singleValueQuery($query);
+  }
 
   /**
    * Get the number of installment done/completed for each recurring contribution.
@@ -348,6 +370,9 @@ SELECT r.payment_processor_id
       $params[$recurDAO->id]['contactId'] = $recurDAO->contact_id;
       $params[$recurDAO->id]['start_date'] = $recurDAO->start_date;
       $params[$recurDAO->id]['end_date'] = $recurDAO->end_date;
+      $params[$recurDAO->id]['cancel_date'] = $recurDAO->cancel_date;
+      $params[$recurDAO->id]['trxn_id'] = $recurDAO->trxn_id;
+      $params[$recurDAO->id]['processor_id'] = $recurDAO->processor_id;
       $params[$recurDAO->id]['next_sched_contribution_date'] = $recurDAO->next_sched_contribution_date;
       $params[$recurDAO->id]['amount'] = $recurDAO->amount;
       $params[$recurDAO->id]['currency'] = $recurDAO->currency;
