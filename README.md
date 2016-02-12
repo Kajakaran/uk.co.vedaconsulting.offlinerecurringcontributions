@@ -10,6 +10,7 @@ This extension adds offline feature to existing online recurring
 * Install the extension manually in CiviCRM. More details [here](http://wiki.civicrm.org/confluence/display/CRMDOC/Extensions#Extensions-Installinganewextension) about installing extensions in CiviCRM.
 
 ### Usage ###
+* Check 'Recurring Contribution' in 'Display Preferences'(civicrm/admin/setting/preferences/display?reset=1)
 * Create payment processor type of 'Manual'
 * Create offline recurring using 'Set Up Recurring Contribution' button in 'Recurring Contribution' tab
 * Create contribution using above recurring.
