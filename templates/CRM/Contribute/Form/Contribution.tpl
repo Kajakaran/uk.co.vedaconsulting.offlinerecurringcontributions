@@ -217,7 +217,23 @@
   </table>
 
   {include file='CRM/Core/BillingBlockWrapper.tpl'}
-
+      <!-- start of recurring contribution -->
+    <div class="crm-accordion-wrapper crm-accordion_title-accordion crm-accordion-processed" id="ContributionRecur">
+      <div class="crm-accordion-header">
+        {ts}Recurring Contribution{/ts}
+      </div>
+      <div class="crm-accordion-body">
+        <table class="form-layout-compressed">
+            <tr class="crm-contribution-form-block-contribution_type_id crm-contribution-form-block-contribution_recur_id">
+              <td class="label">{$form.contribution_recur_id.label}</td><td{$valueStyle}>{$form.contribution_recur_id.html}<br/>
+                <sub>( Amount / Payment Processor / Status / Start Date)</sub>
+              </td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <!-- end of recurring contribution -->
+  
     <!-- start of soft credit -->
     <div class="crm-accordion-wrapper crm-accordion_title-accordion crm-accordion-processed {if $noSoftCredit}collapsed{/if}" id="softCredit">
       <div class="crm-accordion-header">
