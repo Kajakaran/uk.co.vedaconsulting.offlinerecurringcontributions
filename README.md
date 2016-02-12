@@ -11,9 +11,9 @@ This extension adds offline feature to existing online recurring
 
 ### Usage ###
 * Check 'Recurring Contribution' in 'Display Preferences'(civicrm/admin/setting/preferences/display?reset=1)
-* Create payment processor type of 'Manual'
-* Create offline recurring using 'Set Up Recurring Contribution' button in 'Recurring Contribution' tab
-* Create contribution using above recurring.
+* Create payment processor type of 'Manual' (images/payment_processor.png)
+* Create offline recurring using 'Set Up Recurring Contribution' button in 'Recurring Contribution' tab  (images/new_offline_recur.png)
+* Create contribution using above recurring (images/newcontri_recur.png)
 * Create custom fields with type of 'Recurring Contributions', which will show up in creating new recurring record
 
 ### Support ###
